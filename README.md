@@ -39,7 +39,7 @@ when comparing cases.
 ##Signal Processing
 =======
 
-After all signals die out and each case has been excited then the difference calculation begins. Each case handles the
+After every signal dies out and each case has been excited then the difference calculation begins. Each case handles the
 calculation by themselves, again as a nice parallel caveat. After each of the cases in memeory computes the average
 activation for the case in general these numbers are used to determine the overall similarity to the querying case for
 the sake of computing a new solution. For reference these averages can be weighted so as to put priority for certain
