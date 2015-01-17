@@ -16,6 +16,9 @@ An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(rela
 * connections
 	* an array of all connections leading from this node to others
 
+* cases
+	* an array of shallow copies of all cases that associate with this node
+
 
 =======
 ##Methods
