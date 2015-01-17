@@ -1,15 +1,14 @@
-=======
-Semantic Net
+#Semantic Net
 =======
 
 =======
-Description
+##Description
 =======
 
 An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(relationships)*
 
 =======
-Data
+##Data
 =======
 * nodes
 	* All nodes that are in the semntic net remain here
@@ -19,7 +18,7 @@ Data
 
 
 =======
-Methods
+##Methods
 =======
 * addNode
 	* Description:
