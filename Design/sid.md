@@ -1,7 +1,5 @@
 #SID Algorithm
 =======
-
-=======
 ##What is SID?
 =======
 
