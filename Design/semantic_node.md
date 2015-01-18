@@ -17,8 +17,7 @@ An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(rela
 	* an array of all connections leading from this node to others
 
 * cases
-	* an array of shallow copies of all cases that associate with this node
-
+	* an array of cases associated with the particular semantic node
 
 =======
 ##Methods
@@ -29,7 +28,7 @@ An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(rela
 	* Input:
 		* string containing the subject's name
 	* Output:
-		* creates a new node and returns true if successful
+		* creates a new node
 
 * addConnection
 	* Description:
@@ -47,6 +46,22 @@ An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(rela
 		* None
 	* Output:
 		* All the connections associated with this node
+
+* addCaseAssoc
+	* Description:
+		Adds a case associtation to the semantic node
+	* Input:
+		* A shallow copy of a case
+	* Output:
+		* None
+
+* getAssocCases
+	* Description:
+		Retrives all associated cases
+	* Input:
+		None
+	* Output:
+		An array containing the cases the semantic node is associated with
 
 =======
 ###Notes
