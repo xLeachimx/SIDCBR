@@ -8,10 +8,12 @@ class SemanticNode
 	attr_accessor :name
 
 	@@validConnections = ["isa"]
+	@@connectionStrength = [1]
 
 	def initalize name
 		@name = name
 		@connections = []
+		@cases = []
 	end
 
 	def addConnection other, type
@@ -24,5 +26,20 @@ class SemanticNode
 
 	def getConnections
 		return @connections
+	end
+
+	def addCaseAssoc c
+		@cases.push(c)
+		return
+	end
+
+	def getAssocCases
+		return @cases
+	end
+
+	def self.getConnectionStrength type
+		return false if not @@validConnections.include?(type)
+		location = @@validConnections.index(type)
+		return @@connectionStrength(location)
 	end
 end
