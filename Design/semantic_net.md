@@ -13,10 +13,6 @@ An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(rela
 * nodes
 	* All nodes that are in the semntic net remain here
 
-* validConnections
-	* A list of all valid connection types
-
-
 =======
 ##Methods
 =======
@@ -34,7 +30,7 @@ An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(rela
 	* Input:
 		* string containing the name of the subject the connection comes from
 		* string containing the name of the subject the connection goes to
-		* string containing the name of the connection between the first two arguments 
+		* string containing the type of the connection between the first two arguments 
 	* Output:
 		* creates a new connection and returns true if successful
 
