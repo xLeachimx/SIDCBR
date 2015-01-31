@@ -22,6 +22,7 @@ class SemanticNet
 			if name < @nodes[i].name
 				@nodes.insert(i,SemanticNode.new(name))
 				return
+			end
 		end
 	end
 
