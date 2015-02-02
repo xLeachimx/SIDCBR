@@ -14,23 +14,14 @@ class SemanticNet
 	end
 
 	def addNode name
-		if @nodes.length == 0
-			@nodes.push(SemanticNode.new(name))
-			return
-		end
-		for i in 0...@nodes.length
-			if name < @nodes[i].name
-				@nodes.insert(i,SemanticNode.new(name))
-				return
-			end
-		end
+		@nodes.push(SemanticNode.new(name))
 	end
 
 	def addConnection from, to, type
-		getNode(from).addConnection(getNode(type),type)
+		getNode(from).addConnection(getNode(to),type)
 	end
 
 	def getNode name
-		@nodes.bsearch{|x| x.name == name}.clone
+		@nodes[@nodes.index{|x| x.name == name}]
 	end
 end
