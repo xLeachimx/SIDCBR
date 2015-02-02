@@ -10,7 +10,7 @@ class SemanticNode
 	@@validConnections = ["isa"]
 	@@connectionStrength = [1]
 
-	def initalize name
+	def initialize name
 		@name = name
 		@connections = []
 		@cases = []
@@ -40,6 +40,6 @@ class SemanticNode
 	def self.getConnectionStrength type
 		return false if not @@validConnections.include?(type)
 		location = @@validConnections.index(type)
-		return @@connectionStrength(location)
+		return @@connectionStrength[location]
 	end
 end
