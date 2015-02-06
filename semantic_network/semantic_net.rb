@@ -24,4 +24,9 @@ class SemanticNet
 	def getNode name
 		@nodes[@nodes.index{|x| x.name == name}]
 	end
+
+	def isNode name
+		return false if(@nodes.index{|x| x.name == name} == nil)
+		return true
+	end
 end
