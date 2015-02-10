@@ -24,42 +24,45 @@ class Case
 	}
 
 	def initialize semanticNet
-		@details = {
-			hero: @@generic_hero,
-			villian: @@generic_villian,
-			world: @@generic_world,
-		}
+		@details = [@@generic_hero, @@generic_villian, @@generic_world]
+
 		@solution = @@generic_solution
 		@semanticNet = semanticNet
 	end
 
 	def setHero h
-		@details[:hero] = h
-		@details[:hero].each{|key, value|} do
-			if(@semanticNet.isNode(value))
-				@semanticNet.addNode(value)
+		@details[0] = h
+		@details[0].each do |key, value|
+			unless(value == nil)
+				if(!@semanticNet.isNode(value))
+					@semanticNet.addNode(value)
+				end
+				@semanticNet.getNode(value).addCaseAssoc(self)
 			end
-			@semanticNet.getNode(value).addCaseAssoc(self)
 		end
 	end
 
 	def setVillain v
-		@details[:villian] = v
-		@details[:villian].each{|key, value|} do
-			if(@semanticNet.isNode(value))
-				@semanticNet.addNode(value)
+		@details[1] = v
+		@details[1].each do |key, value|
+			unless(value == nil)
+				if(!@semanticNet.isNode(value))
+					@semanticNet.addNode(value)
+				end
+				@semanticNet.getNode(value).addCaseAssoc(self)
 			end
-			@semanticNet.getNode(value).addCaseAssoc(self)
 		end
 	end
 
 	def setWorld w
-		@details[:world] = w
-		@details[:world].each{|key, value|} do
-			if(@semanticNet.isNode(value))
-				@semanticNet.addNode(value)
+		@details[2] = w
+		@details[2].each do |key, value|
+			unless(value == nil)
+				if(!@semanticNet.isNode(value))
+					@semanticNet.addNode(value)
+				end
+				@semanticNet.getNode(value).addCaseAssoc(self)
 			end
-			@semanticNet.getNode(value).addCaseAssoc(self)
 		end
 
 	end
