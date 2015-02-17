@@ -22,7 +22,7 @@ class SemanticNet
 	end
 
 	def getNode name
-		@nodes[@nodes.index{|x| x.name == name}]
+		@nodes[@nodes.index{|x| x.name == name}].clone
 	end
 
 	def isNode name

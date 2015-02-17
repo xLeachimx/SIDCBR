@@ -6,6 +6,7 @@
 
 class SemanticNode
 	attr_accessor :name
+	attr_accessor :activation
 
 	@@validConnections = ["isa"]
 	@@connectionStrength = [1]
@@ -14,6 +15,7 @@ class SemanticNode
 		@name = name
 		@connections = []
 		@cases = []
+		@activation = 0
 	end
 
 	def addConnection other, type

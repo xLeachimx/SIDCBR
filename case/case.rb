@@ -1,6 +1,7 @@
 class Case
 	attr_accessor :solution
 	attr_accessor :details
+	attr_accessor :activation
 
 	@@generic_hero = {
 		goal: nil,
