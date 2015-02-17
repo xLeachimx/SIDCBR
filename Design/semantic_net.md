@@ -42,6 +42,14 @@ An aggregate data type of Semantic Nodes(subjects) and Semantic Connections(rela
 	* Output:
 		* A shallow copy of the node spcified by the argument
 
+* isNode
+	* Description:
+		Returns true if the node with name exists
+	* Input:
+		* string containing potential node's name
+	* Output:
+		* returns true iff there is a node with the specified name
+
 
 
 
