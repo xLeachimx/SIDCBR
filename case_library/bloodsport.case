@@ -2,7 +2,7 @@
 hero goal nil
 hero involved_with nil
 hero job soldier
-hero weapon martial_arts
+hero weapon martial-arts
 #villain
 villain weapon martial-arts
 villain goal nil
