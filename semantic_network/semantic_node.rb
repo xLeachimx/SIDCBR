@@ -6,14 +6,16 @@
 
 class SemanticNode
 	attr_accessor :name
+	attr_accessor :activation
 
-	@@validConnections = ["isa"]
-	@@connectionStrength = [1]
+	@@validConnections = ["isa","canbe","leadsto","comesfrom","describedby","descriptionof"]
+	@@connectionStrength = [1,2,3,3,5,5]
 
 	def initialize name
 		@name = name
 		@connections = []
 		@cases = []
+		@activation = 0
 	end
 
 	def addConnection other, type

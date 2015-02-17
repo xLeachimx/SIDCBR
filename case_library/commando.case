@@ -1,0 +1,11 @@
+#hero
+hero goal nil
+hero involved_with military
+hero job soldier
+hero weapon gun
+#villain
+villain weapon gun
+villain goal nil
+villain job merc
+#world
+world type present
