@@ -14,11 +14,15 @@ def initalizeCase filename
 		next if(l[0] == '#')
 		elements = l.split(" ")
 		if(element[0] == 'hero')
+			hero[element[1].to_sym] = element[2]
 		elsif(element[0] == 'villian')
-		else
-			world[element[1].to_sym] = 
+			villian[element[1].to_sym] = element[2]
+		elsif(element[0] == 'world')
+			world[element[1].to_sym] = element[2]
 		end
-			
 	end
+	newCase.setHero(hero)
+	newCase.setVillian(villian)
+	newCase.setWorld(world)
 	return newCase
 end
