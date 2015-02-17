@@ -2,6 +2,7 @@ class Case
 	attr_accessor :solution
 	attr_accessor :details
 	attr_accessor :activation
+	attr_accessor :name
 
 	@@generic_hero = {
 		goal: nil,
@@ -12,7 +13,7 @@ class Case
 	@@generic_villian = {
 		weapon: nil,
 		goal: nil,
-		actor: nil
+		job: nil
 	}
 	@@generic_world = {
 		type: nil
@@ -29,6 +30,7 @@ class Case
 
 		@solution = @@generic_solution
 		@semanticNet = semanticNet
+		name = ''
 	end
 
 	def setHero h

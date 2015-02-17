@@ -1,28 +1,30 @@
 require_relative 'case'
 
 
-def initalizeCase filename
-	newCase = Case.new
+def initalizeCase filename, sNet
+	newCase = Case.new(sNet)
+	newCase.name = filename
 	f = File.open(filename, "r")
 	contents = f.read
 	lines = contents.split("\n")
 	hero = {}
-	villian = {}
+	villain = {}
 	world = {}
 	lines.each do |l|
 		l.downcase!
 		next if(l[0] == '#')
 		elements = l.split(" ")
-		if(element[0] == 'hero')
-			hero[element[1].to_sym] = element[2]
-		elsif(element[0] == 'villian')
-			villian[element[1].to_sym] = element[2]
-		elsif(element[0] == 'world')
-			world[element[1].to_sym] = element[2]
+		elements[2] == nil if(elements[2] == 'nil')
+		if(elements[0] == 'hero')
+			hero[elements[1].to_sym] = elements[2]
+		elsif(elements[0] == 'villain')
+			villain[elements[1].to_sym] = elements[2]
+		elsif(elements[0] == 'world')
+			world[elements[1].to_sym] = elements[2]
 		end
 	end
 	newCase.setHero(hero)
-	newCase.setVillian(villian)
+	newCase.setVillain(villain)
 	newCase.setWorld(world)
 	return newCase
 end

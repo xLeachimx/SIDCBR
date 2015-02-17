@@ -14,7 +14,7 @@ def clearSemanticNet semanticNet
 	end
 end
 
-def SID c caseLib semanticNet
+def SID c, caseLib, semanticNet
 	clearCaseLibActivation(caseLib)
 	c.details.each_index do |i|
 		c.details[i].each do |key, value|
@@ -30,8 +30,9 @@ def SIDActivationSpread node, index, key, currentActiveLevel
 	return if(currentActiveLevel <= node.activation)
 	previous = node.activation
 	node.activation = currentActiveLevel
-	node.getAssocCase.each do |c|
-		if(c[i][key] == node.name)
+	node.getAssocCases.each do |c|
+		next if(c.activation == nil) # Only true for new case which is not in library
+		if(c.details[index][key] == node.name)
 			c.activation += currentActiveLevel
 			c.activation -= previous
 		end
