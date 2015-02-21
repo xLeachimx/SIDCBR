@@ -1,3 +1,10 @@
+# FILE: case.rb
+# Author: Michael Huelsman
+# Description:
+# 	For full description see case.md in the design folder
+# Notes:
+
+
 class Case
 	attr_accessor :solution
 	attr_accessor :details

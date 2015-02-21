@@ -1,3 +1,10 @@
+# FILE: main.rb
+# Author: Michael Huelsman
+# Description:
+# 	The actual conglomorating program
+# Notes:
+
+
 require_relative 'case/case'
 require_relative 'case/case_initial'
 require_relative 'semantic_network/semantic_initial'
@@ -17,11 +24,14 @@ def run
 		puts c
 		puts c.name + ',' + c.activation.to_s
 		puts c.details
-		puts "\n\n\n\n\n\n\n"
+		puts "\n\n\n"
 	end
+	puts "Those were matched to:" 
 	puts match
-	puts match.name + ',' + match.activation.to_s
+	puts match.name
 	puts match.details
+
+	puts 'Links to martial-arts'
 	puts net.getNode('martial-arts').getAssocCases
 	return 'done'
 end

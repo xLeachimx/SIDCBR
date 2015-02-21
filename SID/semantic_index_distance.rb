@@ -1,3 +1,10 @@
+# FILE: semantic_index_distance.rb
+# Author: Michael Huelsman
+# Description:
+# 	Actually runs the SID algorithm
+# Notes:
+
+
 require_relative '../semantic_network/semantic_node'
 require_relative '../semantic_network/semantic_net'
 require_relative '../case/case'
@@ -20,7 +27,7 @@ def SID c, caseLib, semanticNet
 		c.details[i].each do |key, value|
 			next if(value == nil)
 			clearSemanticNet(semanticNet.clone)
-			SIDActivationSpread(semanticNet.getNode(value), i, key, 10)
+			SIDActivationSpread(semanticNet.getNode(value), i, key, 5)
 		end
 	end
 end

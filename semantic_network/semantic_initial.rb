@@ -1,3 +1,10 @@
+# FILE: semantic_initial.rb
+# Author: Michael Huelsman
+# Description:
+# 	Inits semantic net from file
+# Notes:
+
+
 require_relative 'semantic_net'
 
 def initializeSemanticNet filename
