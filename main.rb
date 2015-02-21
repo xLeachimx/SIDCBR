@@ -19,7 +19,7 @@ def run
 		initalizeCase('case_library/commando.case',net.clone)
 	]
 	match = initalizeCase('case_library/enter_the_dragon.case',net.clone)
-	SID(match, caseLib, net)
+	SID(match, caseLib, net, 5)
 	caseLib.each do |c|
 		puts c
 		puts c.name + ',' + c.activation.to_s
