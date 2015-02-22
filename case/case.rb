@@ -44,10 +44,12 @@ class Case
 		@details[0] = h
 		@details[0].each do |key, value|
 			unless(value == nil)
-				if(!@semanticNet.isNode(value))
-					@semanticNet.addNode(value)
+				value.each do |element|
+					if(!@semanticNet.isNode(element))
+						@semanticNet.addNode(element)
+					end
+					@semanticNet.getNode(element).addCaseAssoc(self)
 				end
-				@semanticNet.getNode(value).addCaseAssoc(self)
 			end
 		end
 	end
@@ -56,10 +58,12 @@ class Case
 		@details[1] = v
 		@details[1].each do |key, value|
 			unless(value == nil)
-				if(!@semanticNet.isNode(value))
-					@semanticNet.addNode(value)
+				value.each do |element|
+					if(!@semanticNet.isNode(element))
+						@semanticNet.addNode(element)
+					end
+					@semanticNet.getNode(element).addCaseAssoc(self)
 				end
-				@semanticNet.getNode(value).addCaseAssoc(self)
 			end
 		end
 	end
@@ -68,10 +72,12 @@ class Case
 		@details[2] = w
 		@details[2].each do |key, value|
 			unless(value == nil)
-				if(!@semanticNet.isNode(value))
-					@semanticNet.addNode(value)
+				value.each do |element|
+					if(!@semanticNet.isNode(element))
+						@semanticNet.addNode(element)
+					end
+					@semanticNet.getNode(element).addCaseAssoc(self)
 				end
-				@semanticNet.getNode(value).addCaseAssoc(self)
 			end
 		end
 

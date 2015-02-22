@@ -20,17 +20,19 @@ def initalizeCase filename, sNet
 		l.downcase!
 		next if(l[0] == '#')
 		elements = l.split(" ")
-		elements[2] = nil if(elements[2] == "nil")
+		ary = elements[2..elements.size]
+		ary = nil if(elements[2] == "nil")
 		if(elements[0] == 'hero')
-			hero[elements[1].to_sym] = elements[2]
+			hero[elements[1].to_sym] = ary
 		elsif(elements[0] == 'villain')
-			villain[elements[1].to_sym] = elements[2]
+			villain[elements[1].to_sym] = ary
 		elsif(elements[0] == 'world')
-			world[elements[1].to_sym] = elements[2]
+			world[elements[1].to_sym] = ary
 		end
 	end
 	newCase.setHero(hero)
 	newCase.setVillain(villain)
 	newCase.setWorld(world)
+	newCase.activation = 0
 	return newCase
 end

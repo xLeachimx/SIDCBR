@@ -21,13 +21,15 @@ def clearSemanticNet semanticNet
 	end
 end
 
-def SID c, caseLib, semanticNet
+def SID c, caseLib, semanticNet, activationStart
 	clearCaseLibActivation(caseLib)
 	c.details.each_index do |i|
 		c.details[i].each do |key, value|
 			next if(value == nil)
-			clearSemanticNet(semanticNet.clone)
-			SIDActivationSpread(semanticNet.getNode(value), i, key, 5)
+			value.each do |element|
+				clearSemanticNet(semanticNet.clone)
+				SIDActivationSpread(semanticNet.getNode(element), i, key, activationStart/value.size()) #balance for multiple inputs
+			end
 		end
 	end
 end
@@ -39,9 +41,9 @@ def SIDActivationSpread node, index, key, currentActiveLevel
 	node.activation = currentActiveLevel
 	node.getAssocCases.each do |c|
 		next if(c.activation == nil) # Only true for new case which is not in library
-		if(c.details[index][key] == node.name)
-			c.activation += currentActiveLevel
-			c.activation -= previous
+		if(c.details[index][key] != nil && c.details[index][key].include?(node.name)) # provide support for multi 
+			c.activation += currentActiveLevel/c.details[index][key].size() #suppress activation for balance
+			c.activation -= previous/c.details[index][key].size()
 		end
 	end
 	node.getConnections.each do |connect|
