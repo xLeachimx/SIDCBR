@@ -47,7 +47,19 @@ def SIDActivationSpread node, index, key, currentActiveLevel
 		end
 	end
 	node.getConnections.each do |connect|
-		nexttActiveLevel = currentActiveLevel - SemanticNode.getConnectionStrength(connect[0])
+		connectionStr = 0
+		if(SemanticNode.getConnectionStrength(connect[0]) < 0)
+			count = 0
+			node.getConnections.each do |c|
+				if(c[0] == connect[0])
+					count += 1
+				end
+			end
+			connectionStr = count * SemanticNode.getConnectionStrength(connect[0]).abs
+		else
+			connectionStr = SemanticNode.getConnectionStrength(connect[0])
+		end
+		nexttActiveLevel = currentActiveLevel - connectionStr
 		SIDActivationSpread(connect[1],index,key,nexttActiveLevel)
 	end
 end

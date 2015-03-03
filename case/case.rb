@@ -88,78 +88,69 @@ class Case
 	end
 
 	def narrateCase
-		narrative = "In " + @name " the main character"
+		narrative = "In " + @name + " the main character"
 		if @details[0][:job]
 			narrative += " has a job as"
-			@details[0][:job].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
-			narratvie += ' and '
+			narrative += @details[0][:job].join(' and ')
+			narrative += ' and' if @details[0][:involved_with] || @details[0][:goal]
 		end
 		if @details[0][:involved_with]
 			narrative += " is involved with"
-			@details[0][:involved_with].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
-			narrative += ' and '
+			narrative += @details[0][:involved_with].join(' and ')
+			narrative += ' and' if @details[0][:goal]
 		end
 		if @details[0][:goal]
 			narrative += " has goal(s) of"
-			@details[0][:involved_with].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
+			narrative += @details[0][:goal].join(' and ')
 		end
 
 		narrative += '.'
 
 		if @details[0][:weapon]
-			narrative += " The main character has"
-			@details[0][:weapon].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
+			narrative += " The main character has "
+			narrative += @details[0][:weapon].join(' and ')
 			narrative += ' as weapons.'
 		end
 
-		narrative += 'The villian on the other hand'
+		narrative += ' The villian on the other hand'
 
 		if @details[1][:job]
-			narrative += " has a job as"
-			@details[0][:job].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
-			narratvie += ' and '
+			narrative += " has a job as "
+			narrative += @details[1][:job].join(' and ')
+			narrative += ' and' if @details[0][:goal]
 		end
 		if @details[1][:goal]
-			narrative += " has goal(s) of"
-			@details[1][:involved_with].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
+			narrative += " has goal(s) of "
+			narrative += @details[1][:goal].join(' and ')
 		end
 
 		narrative += '.'
 
 		if @details[1][:weapon]
 			narrative += " The main villian has"
-			@details[1][:weapon].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
+			narrative += @details[1][:weapon].join(' and ')
 			narrative += ' as weapons.'
 		end
 
 		if @details[2][:type]
-			narrative += 'All of the events that unfold are told in a world of '
-			@details[2][:type].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
+			narrative += ' All of the events that unfold are told in the world of the '
+			narrative += @details[2][:type].join(' and ')
 		end
 		return narrative
 	end
 
 	def narrateSolution
 		narrative = 'The story ends with the main character in a'
-		narrative += ' ' + @solution[:difficulty] if(@solution[:difficulty])
-		narrative += ' fight which end with the main villian'
+		narrative += ' ' + @solution[:difficulty].join(' and ') if @solution[:difficulty]
+		narrative += ' fight which ends with the main villian'
 		if(@solution[:lethal])
 			narrative += ' being killed.'
 		else
 			narrative += ' being spared.'
 		end
 		if @solution[:weapon]
-			narrative += ' The main character managed to do this through his use of '
-			@solution[:weapon].each{|j| narrative += ' ' + j + ','}
-			narrative.slice!(-1)
+			narrative += ' The main character managed to do this through his use of'
+			narrative += @solution[:weapon].join(' and ')
 			narrative += '.'
 		end
 		if @solution[:help]

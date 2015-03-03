@@ -16,6 +16,7 @@ def initalizeCase filename, sNet
 	hero = {}
 	villain = {}
 	world = {}
+	solution = {}
 	lines.each do |l|
 		l.downcase!
 		next if(l[0] == '#')
@@ -28,11 +29,14 @@ def initalizeCase filename, sNet
 			villain[elements[1].to_sym] = ary
 		elsif(elements[0] == 'world')
 			world[elements[1].to_sym] = ary
+		elsif(elements[0] == 'solution')
+			solution[elements[1].to_sym] = ary
 		end
 	end
 	newCase.setHero(hero)
 	newCase.setVillain(villain)
 	newCase.setWorld(world)
+	newCase.setSolution(solution)
 	newCase.activation = 0
 	return newCase
 end

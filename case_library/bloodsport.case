@@ -9,3 +9,8 @@ villain goal nil
 villain job merc
 #world
 world type present
+#solution
+solution lethal true
+solution weapon martial-arts
+solution difficulty hard
+solution help nil
