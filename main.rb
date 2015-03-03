@@ -6,6 +6,7 @@
 
 
 require_relative 'case/case'
+require_relative 'case/adaptation'
 require_relative 'case/case_initial'
 require_relative 'semantic_network/semantic_initial'
 require_relative 'semantic_network/semantic_net'
@@ -35,18 +36,12 @@ def run
 	match = caseLib[2]
 	SID(match, caseLib, net, 5)
 	caseLib.sort!{|x, y| y.activation <=> x.activation}
-	caseLib.each do |c|
-		puts c
-		puts c.name + ',' + c.activation.to_s
-		puts c.details
-		puts "\n\n\n"
-	end
-	puts "Those were matched to:" 
-	puts match
-	puts match.name
-	puts match.details
-
-	puts 'Links to martial-arts'
-	puts net.getNode('martial-arts').getAssocCases
+	puts 'Upon considering the narrative of:'
+	puts match.narrateCase
+	puts "\n\nI have decided that it is most like this narrative"
+	puts caseLib[0].narrateCase
+	puts "\n\nI propose this solution:"
+	match.setSolution(adapt(caseLib[0],match))
+	puts match.narrateSolution
 	return 'done'
 end
