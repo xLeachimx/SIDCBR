@@ -23,27 +23,32 @@ end
 
 def SID c, caseLib, semanticNet, activationStart
 	clearCaseLibActivation(caseLib)
+	c.activation = nil
 	c.details.each_index do |i|
 		c.details[i].each do |key, value|
 			next if(value == nil)
 			value.each do |element|
 				clearSemanticNet(semanticNet.clone)
-				SIDActivationSpread(semanticNet.getNode(element), i, key, activationStart/value.size()) #balance for multiple inputs
+				SIDActivationSpread(semanticNet.getNode(element), i, key, activationStart/value.size(),[i,key]) #balance for multiple inputs
 			end
 		end
 	end
 end
 
-def SIDActivationSpread node, index, key, currentActiveLevel
+def SIDActivationSpread node, index, key, currentActiveLevel, currentTrace
 	return if(currentActiveLevel <= 0)
 	return if(currentActiveLevel <= node.activation)
 	previous = node.activation
 	node.activation = currentActiveLevel
 	node.getAssocCases.each do |c|
-		next if(c.activation == nil) # Only true for new case which is not in library
+		next if(c.activation == nil) # Only true for new case which is not in library/is querying case
 		if(c.details[index][key] != nil && c.details[index][key].include?(node.name)) # provide support for multi 
 			c.activation += currentActiveLevel/c.details[index][key].size() #suppress activation for balance
 			c.activation -= previous/c.details[index][key].size()
+			c.traces.pop if(c.traces != [] && c.traces[-1][0] == currentTrace[0] && c.traces[-1][1] == currentTrace[1])
+			currentTrace.push(node.name)
+			c.traces.push(currentTrace.clone)
+			currentTrace.pop
 		end
 	end
 	node.getConnections.each do |connect|
@@ -60,7 +65,9 @@ def SIDActivationSpread node, index, key, currentActiveLevel
 			connectionStr = SemanticNode.getConnectionStrength(connect[0])
 		end
 		nexttActiveLevel = currentActiveLevel - connectionStr
-		SIDActivationSpread(connect[1],index,key,nexttActiveLevel)
+		currentTrace.push(node.name)
+		SIDActivationSpread(connect[1],index,key,nexttActiveLevel,currentTrace)
+		currentTrace.pop
 	end
 end
 

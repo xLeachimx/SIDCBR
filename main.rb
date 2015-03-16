@@ -33,7 +33,7 @@ end
 def run
 	net = initializeSemanticNet('semantic.net')
 	caseLib = createCaseLib(Cases::CASEFILES, net)
-	match = initalizeCase('case_library/die_hard.case',net.clone)
+	match = initalizeCase('case_library/die_hard.case',netc)
 	SID(match, caseLib, net, 5)
 	caseLib.sort!{|x, y| y.activation <=> x.activation}
 	puts 'Upon considering the narrative of:'
@@ -44,5 +44,18 @@ def run
 	puts "\n\nI propose this solution:"
 	match.setSolution(adapt(caseLib[0],match))
 	puts match.narrateSolution
+	caseLib[0].traces.each do |t|
+		puts "Trace for:"
+		if t[0] == 0
+			print "Hero "
+		elsif t[0] == 1
+			print "Villian "
+		elsif t[0] == 2
+			print "World "
+		end
+		puts t[1]
+		puts t[2..t.size()].join(" to ")
+		puts
+	end
 	return 'done'
 end

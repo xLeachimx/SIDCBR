@@ -22,11 +22,18 @@ class SemanticNet
 	end
 
 	def getNode name
-		@nodes[@nodes.index{|x| x.name == name}].clone
+		@nodes[@nodes.index{|x| x.name == name}]
 	end
 
 	def isNode name
 		return false if(@nodes.index{|x| x.name == name} == nil)
 		return true
+	end
+
+	def output
+		@nodes.each do |n|
+			puts n.name
+			puts n
+		end
 	end
 end

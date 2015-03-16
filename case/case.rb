@@ -10,6 +10,7 @@ class Case
 	attr_accessor :details
 	attr_accessor :activation
 	attr_accessor :name
+	attr_accessor :traces
 
 	@@generic_hero = {
 		goal: nil,
@@ -37,7 +38,8 @@ class Case
 
 		@solution = @@generic_solution
 		@semanticNet = semanticNet
-		name = ''
+		@name = ''
+		@traces = []
 	end
 
 	def setHero h
