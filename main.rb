@@ -41,7 +41,7 @@ end
 def run
 	net = initializeSemanticNet('semantic.net')
 	caseLib = createCaseLib(Cases::CASEFILES, net)
-	match = initalizeCase('case_library/die_hard.case',netc)
+	match = initalizeCase('case_library/die_hard.case',net)
 	SID(match, caseLib, net, 5)
 	caseLib.sort!{|x, y| y.activation <=> x.activation}
 	puts 'Upon considering the narrative of:'
