@@ -1,12 +1,12 @@
 #hero
-hero goal find-child
+hero goal kill-villian
 hero involved_with military
-hero job soldier
-hero weapon gun knife
+hero job merc
+hero weapon gun
 #villain
 villain weapon gun
-villain goal kill-leader
-villain job merc
+villain goal kill-hero
+villain job hunter
 #world
 world type present
 #solution

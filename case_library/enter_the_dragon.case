@@ -1,11 +1,11 @@
 #hero
-hero goal nil
-hero involved_with nil
+hero goal kill-villian
+hero involved_with military
 hero job monk
 hero weapon martial-arts
 #villain
 villain weapon martial-arts
-villain goal nil
+villain goal destroy-society
 villain job merc
 #world
 world type present

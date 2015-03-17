@@ -1,4 +1,4 @@
-# object net
+# Object net
 object canbe weapon
 weapon isa object
 weapon canbe gun
@@ -25,7 +25,6 @@ self-weapon canbe martial-arts
 martial-arts isa self-weapon
 brass-knuckles isa self-weapon
 fists isa self-weapon
-
 # Actor Net
 actor describedby sprituality
 actor describedby job
@@ -36,6 +35,9 @@ job descriptionof actor
 job canbe security
 job canbe police
 job canbe military
+job canbe hunter
+job canbe fighter
+job canbe criminal
 security isa job
 secutiry canbe guard
 security canbe bouncer
@@ -44,6 +46,7 @@ bouncer isa security
 police isa job
 police canbe officer
 police canbe detective
+police relatedto criminal
 officer isa police
 detective isa police
 military isa job
@@ -55,7 +58,10 @@ merc canbe assassin
 assassin isa merc
 spy isa military
 soldier isa military
-
+hunter isa job
+fighter isa job
+criminal isa job
+criminal relatedto police
 # Temporal Net
 present leadsto future
 present comesfrom past
@@ -77,16 +83,29 @@ dystopian-future comesfrom dystopian-present
 apocalyptic-future comesfrom present
 apocalyptic-future comesfrom dystopian-future
 apocalyptic-future isa future
-
 # Goal net
 actor describedby goal
 goal descriptionof actor
 goal canbe find-something
 goal canbe destroy-something
 goal canbe protect-something
+goal canbe win-something
 find-something isa goal
 destroy-something isa goal
 protect-something isa goal
+win-something isa goal
+find-something relatedto protect-something
+find-something relatedto destroy-something
+find-something relatedto win-something
+destroy-something relatedto find-something
+destroy-something relatedto protect-something
+destroy-something relatedto win-something
+protect-something relatedto find-something
+protect-something relatedto destroy-something
+protect-something relatedto win-something
+win-something relatedto find-something
+win-something relatedto destroy-something
+win-something relatedto protect-something
 find-something canbe find-object
 find-something canbe find-actor
 find-object isa find-something
@@ -114,6 +133,7 @@ kill-actor canbe kill-3rd-party
 kill-actor canbe kill-friend
 kill-actor canbe kill-villian
 kill-actor canbe kill-leader
+kill-actor canbe kill-hero
 kill-3rd-party isa kill-actor
 kill-friend isa kill-actor
 kill-villian isa kill-actor
@@ -121,6 +141,7 @@ kill-villian canbe kill-leader
 kill-leader isa kill-actor
 kill-leader canbe kill-villian
 kill-leader relatedto destory-society
+kill-hero isa kill-actor
 protect-something canbe protect-actor
 protect-something canbe protect-object
 protect-something canbe protect-society
@@ -130,6 +151,7 @@ protect-society relatedto protect-leader
 protect-actor canbe protect-3rd-party
 protect-actor canbe protect-family
 protect-actor canbe protect-leader
+protect-actor canbe protect-self
 protect-3rd-party isa protect-actor
 protect-leader isa protect-actor
 protect-leader relatedto protect-society
@@ -140,3 +162,6 @@ protect-family canbe protect-parent
 protect-sibling isa protect-family
 protect-child isa protect-family
 protect-parent isa protect-family
+protect-self isa protect-actor
+win-something canbe win-tournament
+win-tournament isa win-something

@@ -18,6 +18,14 @@ module Cases
 		'case_library/bloodsport.case',
 		'case_library/commando.case',
 		'case_library/enter_the_dragon.case',
+		'case_library/predator.case',
+		'case_library/cyborg.case',
+		'case_library/blade_runner.case',
+		'case_library/first_blood.case',
+		'case_library/rambo_first_blood_part_two.case',
+		'case_library/rambo_three.case',
+		'case_library/rocky.case',
+		'case_library/demolition_man.case'
 	]
 end
 
@@ -38,7 +46,7 @@ def run
 	caseLib.sort!{|x, y| y.activation <=> x.activation}
 	puts 'Upon considering the narrative of:'
 	puts match.narrateCase
-	puts "\n\nI have decided that it is most like this narrative"
+	puts "\n\nI have decided that it is most like this narrative:"
 	puts caseLib[0].narrateCase
 	puts caseLib[0].activation
 	puts "\n\nI propose this solution:"

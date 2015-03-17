@@ -1,0 +1,16 @@
+#hero
+hero goal kill-villian
+hero involved_with police
+hero job detective
+hero weapon gun
+#villain
+villain weapon fists
+villain goal protect-self
+villain job merc
+#world
+world type dystopian-future
+#solution
+solution lethal true
+solution weapon none
+solution difficulty easy
+solution help nil

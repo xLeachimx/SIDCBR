@@ -9,7 +9,7 @@ require_relative 'case'
 
 def initalizeCase filename, sNet
 	newCase = Case.new(sNet)
-	newCase.name = filename
+	newCase.name = filename.gsub(/_/,' ')
 	f = File.open(filename, "r")
 	contents = f.read
 	lines = contents.split("\n")

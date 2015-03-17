@@ -5,7 +5,12 @@ hero job officer
 hero weapon gun
 #villain
 villain weapon gun
-villain goal find-object
-villain job merc
+villain goal kill-hero
+villain job criminal
 #world
 world type present
+#solution
+solution lethal true
+solution weapon gun
+solution difficulty tough
+solution help nil

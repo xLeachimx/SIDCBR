@@ -92,7 +92,7 @@ class Case
 	def narrateCase
 		narrative = "In " + @name + " the main character"
 		if @details[0][:job]
-			narrative += " has a job as"
+			narrative += " has a job as "
 			narrative += @details[0][:job].join(' and ')
 			narrative += ' and' if @details[0][:involved_with] || @details[0][:goal]
 		end
