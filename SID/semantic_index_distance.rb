@@ -40,11 +40,12 @@ def SIDActivationSpread node, index, key, currentActiveLevel, currentTrace
 	return if(currentActiveLevel <= node.activation)
 	previous = node.activation
 	node.activation = currentActiveLevel
-	node.getAssocCases.each do |c|
+	casesAttended = []
+	node.getAssocCases.uniq.each do |c|
 		next if(c.activation == nil) # Only true for new case which is not in library/is querying case
-		if(c.details[index][key] != nil && c.details[index][key].include?(node.name)) # provide support for multi 
-			c.activation += currentActiveLevel/c.details[index][key].size() #suppress activation for balance
-			c.activation -= previous/c.details[index][key].size()
+		if(c.details[index][key] != nil && c.details[index][key].include?(node.name)) # provide support for multi
+			c.activation += currentActiveLevel/c.details[index][key].size().to_f #suppress activation for balance
+			c.activation -= previous/c.details[index][key].size().to_f if previous != 0
 			c.traces.pop if(c.traces != [] && c.traces[-1][0] == currentTrace[0] && c.traces[-1][1] == currentTrace[1])
 			currentTrace.push(node.name)
 			c.traces.push(currentTrace.clone)

@@ -4,6 +4,7 @@ weapon isa object
 weapon canbe gun
 weapon canbe blade
 weapon canbe self-weapon
+weapon canbe explosives
 gun isa weapon
 gun canbe pistol
 gun canbe rifle
@@ -25,6 +26,7 @@ self-weapon canbe martial-arts
 martial-arts isa self-weapon
 brass-knuckles isa self-weapon
 fists isa self-weapon
+explosives isa weapon
 # Actor Net
 actor describedby sprituality
 actor describedby job
@@ -90,10 +92,10 @@ goal canbe find-something
 goal canbe destroy-something
 goal canbe protect-something
 goal canbe win-something
-find-something isa goal
-destroy-something isa goal
-protect-something isa goal
-win-something isa goal
+find-something canbe goal
+destroy-something canbe goal
+protect-something canbe goal
+win-something canbe goal
 find-something relatedto protect-something
 find-something relatedto destroy-something
 find-something relatedto win-something
@@ -164,4 +166,8 @@ protect-child isa protect-family
 protect-parent isa protect-family
 protect-self isa protect-actor
 win-something canbe win-tournament
+win-something canbe win-honor
+win-something canbe win-prize
 win-tournament isa win-something
+win-prize isa win-something
+win-honor canbe win-something

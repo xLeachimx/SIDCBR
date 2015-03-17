@@ -25,7 +25,8 @@ module Cases
 		'case_library/rambo_first_blood_part_two.case',
 		'case_library/rambo_three.case',
 		'case_library/rocky.case',
-		'case_library/demolition_man.case'
+		'case_library/demolition_man.case',
+		'case_library/die_hard_two.case',
 	]
 end
 
@@ -38,11 +39,11 @@ def createCaseLib filenames, net
 end
 
 
-def run
+def run thoughtLevel
 	net = initializeSemanticNet('semantic.net')
 	caseLib = createCaseLib(Cases::CASEFILES, net)
 	match = initalizeCase('case_library/die_hard.case',net)
-	SID(match, caseLib, net, 5)
+	SID(match, caseLib, net, thoughtLevel)
 	caseLib.sort!{|x, y| y.activation <=> x.activation}
 	puts 'Upon considering the narrative of:'
 	puts match.narrateCase
@@ -52,6 +53,11 @@ def run
 	puts "\n\nI propose this solution:"
 	match.setSolution(adapt(caseLib[0],match))
 	puts match.narrateSolution
+	caseLib.each do |c|
+		print c.name
+		print ":"
+		puts c.activation
+	end
 	caseLib[0].traces.each do |t|
 		puts "Trace for:"
 		if t[0] == 0
