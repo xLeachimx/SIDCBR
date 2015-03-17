@@ -1,11 +1,11 @@
 #hero
-hero goal find-child
-hero involved_with military
-hero job soldier
+hero goal protect-3rd-party
+hero involved_with nil
+hero job merc
 hero weapon gun knife
 #villain
 villain weapon gun
-villain goal kill-leader
+villain goal find-object
 villain job merc
 #world
 world type present

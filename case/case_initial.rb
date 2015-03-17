@@ -9,13 +9,17 @@ require_relative 'case'
 
 def initalizeCase filename, sNet
 	newCase = Case.new(sNet)
-	newCase.name = filename
+	newName = filename.gsub(/_/,' ')
+	newName = newName[newName.rindex('/')+1...newName.size]
+	newName = newName[0...newName.rindex('.')]
+	newCase.name = newName
 	f = File.open(filename, "r")
 	contents = f.read
 	lines = contents.split("\n")
 	hero = {}
 	villain = {}
 	world = {}
+	solution = {}
 	lines.each do |l|
 		l.downcase!
 		next if(l[0] == '#')
@@ -28,11 +32,14 @@ def initalizeCase filename, sNet
 			villain[elements[1].to_sym] = ary
 		elsif(elements[0] == 'world')
 			world[elements[1].to_sym] = ary
+		elsif(elements[0] == 'solution')
+			solution[elements[1].to_sym] = ary
 		end
 	end
 	newCase.setHero(hero)
 	newCase.setVillain(villain)
 	newCase.setWorld(world)
+	newCase.setSolution(solution)
 	newCase.activation = 0
 	return newCase
 end

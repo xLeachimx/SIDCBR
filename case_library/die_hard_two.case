@@ -1,16 +1,16 @@
 #hero
 hero goal kill-villian
-hero involved_with military
-hero job monk
-hero weapon martial-arts
+hero involved_with police
+hero job officer
+hero weapon gun
 #villain
-villain weapon martial-arts
-villain goal destroy-society
+villain weapon gun
+villain goal protect-3rd-party
 villain job merc
 #world
 world type present
 #solution
 solution lethal true
-solution weapon martial-arts
+solution weapon explosives
 solution difficulty hard
 solution help nil

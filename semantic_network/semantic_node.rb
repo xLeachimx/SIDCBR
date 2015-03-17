@@ -8,8 +8,8 @@ class SemanticNode
 	attr_accessor :name
 	attr_accessor :activation
 
-	@@validConnections = ["isa","canbe","leadsto","comesfrom","describedby","descriptionof"]
-	@@connectionStrength = [1,2,3,3,5,5]
+	@@validConnections = ["isa","canbe","leadsto","comesfrom","describedby","descriptionof","relatedto"]
+	@@connectionStrength = [1,-1,3,3,5,5,6] # -1 means that it is equal to the amount of those connections on a single node
 
 	def initialize name
 		@name = name

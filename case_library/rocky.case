@@ -2,15 +2,15 @@
 hero goal win-tournament
 hero involved_with nil
 hero job fighter
-hero weapon martial-arts
+hero weapon fists
 #villain
-villain weapon martial-arts
+villain weapon fists
 villain goal win-tournament
 villain job fighter
 #world
 world type present
 #solution
-solution lethal true
-solution weapon martial-arts
+solution lethal flase
+solution weapon fists
 solution difficulty hard
 solution help nil

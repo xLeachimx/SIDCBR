@@ -1,16 +1,16 @@
 #hero
-hero goal find-child
+hero goal protect-3rd-party
 hero involved_with military
 hero job soldier
 hero weapon gun knife
 #villain
 villain weapon gun
-villain goal kill-leader
-villain job merc
+villain goal kill-hero
+villain job soldier
 #world
 world type present
 #solution
 solution lethal true
-solution weapon knife martial-arts
+solution weapon knife gun
 solution difficulty tough
 solution help nil

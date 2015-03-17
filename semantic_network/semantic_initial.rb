@@ -14,7 +14,7 @@ def initializeSemanticNet filename
 	lines = contents.split("\n")
 	lines.each do |l|
 		l.downcase!
-		next if(l[0] == '#')
+		next if(l[0] == '#' || l == '')
 		elements = l.split(" ")
 		sNet.addNode(elements[0]) if(!sNet.isNode(elements[0]))
 		sNet.addNode(elements[2]) if(!sNet.isNode(elements[2]))		
